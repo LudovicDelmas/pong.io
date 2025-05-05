@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "socket.io-client": "^4.8.1"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.3",
+    "serve": "^14.2.4"
+  },
+  "scripts": {
+    "build:client": "esbuild client.ts --bundle --outfile=dist/client.js --format=esm --target=es2017"
+  }
+}
