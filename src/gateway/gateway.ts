@@ -29,4 +29,9 @@ constructor(private readonly game: GameService) {}
     onMoveDown(@ConnectedSocket() client: Socket) {
         this.game.movePaddle(client.id, 'down');
     }
+
+    @SubscribeMessage('reset')
+    onStartPushed() {
+        this.game.resetBall();
+    }
 }

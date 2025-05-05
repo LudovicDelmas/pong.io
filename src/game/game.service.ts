@@ -34,6 +34,7 @@ export class GameService implements OnModuleInit {
         this.paddle2 = Bodies.rectangle(this.width-15, this.height/2, 10, 80, this.paddleOpts);
         this.ball    = Bodies.circle(this.width/2, this.height/2, 10, this.ballOpts);
 
+
         World.add(this.engine.world, [
             this.paddle1, this.paddle2, this.ball,
             // murs haut/bas
@@ -45,7 +46,7 @@ export class GameService implements OnModuleInit {
     update(dt: number) {
         Engine.update(this.engine, dt);
     }
-
+    
     resetBall() {
         Body.setPosition(this.ball, { x: this.width/2, y: this.height/2 });
         const speed = 5;
@@ -83,6 +84,7 @@ export class GameService implements OnModuleInit {
           width: w, height: h
         });
         return {
+            
           player1: { ...toState(this.paddle1, 10, 80), clientId: (this.paddle1 as any).clientId },
           player2: { ...toState(this.paddle2, 10, 80), clientId: (this.paddle2 as any).clientId },
           ball:    { x: this.ball.position.x, y: this.ball.position.y, radius: 10 },
